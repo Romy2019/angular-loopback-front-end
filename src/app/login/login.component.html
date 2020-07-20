@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Log In</h2>
 
-  <form >
+  <form #logInForm="ngForm" (ngSubmit)="logIn(logInForm)" >
     <div class="form-group">
       <label>Username</label>
       <input type="text" name="username" #username="ngModel" class="form-control" placeholder="User-Name" required ngModel>
@@ -10,7 +10,7 @@
       <label>Password</label>
       <input type="password"name="password" #password="ngModel"  class="form-control"placeholder="Password"required ngModel>
     </div>
-    <button class="span4 text-center"class="registerbtn"type="submit">Log In</button>
+    <button class="span4 text-center"class="registerbtn"routerLink="/blog"type="submit">Log In</button>
     <button class="span4 text-center"class="registerbtn"routerLink="/signUp">SignUp</button>
 </form>     
 </div>

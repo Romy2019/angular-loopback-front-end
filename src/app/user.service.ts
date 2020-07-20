@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from './model/user';
+import{LogInUser} from './model/logInUser';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -15,6 +16,13 @@ export class UserService {
       var signUpObj: User;
       signUpObj = {username:username,name:name,email:email,password:password,address:address,phone:phone,zip:zip};
       return this.http.post<boolean>('http://localhost:3000/api/accounts', signUpObj).pipe(catchError(this.errorHandler));
+    }
+
+    logIn(username: string,password:string)
+    : Observable<boolean> {
+      var logInObj: LogInUser;
+      logInObj = {username:username,password:password};
+      return this.http.post<boolean>('http://localhost:3000/api/accounts/login', logInObj).pipe(catchError(this.errorHandler));
     }
     errorHandler(error: HttpErrorResponse) {
       console.log(error);

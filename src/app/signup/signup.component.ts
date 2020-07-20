@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{UserService} from '../user.service'
 import { NgForm } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
 export class SignupComponent implements OnInit {
 
 
-  constructor(private _userService:UserService) { }
+  constructor(private _userService:UserService,private router:Router) { }
   
   ngOnInit() {
     
@@ -26,7 +26,8 @@ export class SignupComponent implements OnInit {
 
    this._userService.signUp(username,name,email,password,address,phone,zip).subscribe(
     response => console.log('Success!', response),
-    error => console.error('Error!', error)
+    error => console.error('Error!', error),
+    ()=>this.router.navigate(['logIn'])
   );
   }
 

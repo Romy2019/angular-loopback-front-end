@@ -7,13 +7,15 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { ResetComponent } from './reset/reset.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    ResetComponent
+    ResetComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
