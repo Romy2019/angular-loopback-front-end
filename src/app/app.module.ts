@@ -9,13 +9,15 @@ import { ResetComponent } from './reset/reset.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogComponent } from './blog/blog.component';
 import { ReactiveFormsModule }    from '@angular/forms';
+import { BlogListComponent } from './blog-list/blog-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
     ResetComponent,
-    BlogComponent
+    BlogComponent,
+    BlogListComponent
   ],
   imports: [
     BrowserModule,

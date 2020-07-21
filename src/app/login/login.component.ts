@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
       response =>{ 
         console.log('Success!', response)
       localStorage.setItem('currentUser', JSON.stringify(response))
+//       var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+// var token = currentUser.token;
       alert("Logged in successfully")
       this.router.navigate(['blog'])
     },

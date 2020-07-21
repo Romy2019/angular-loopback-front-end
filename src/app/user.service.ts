@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {User} from './model/user';
 import{LogInUser} from './model/logInUser';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import{blogList} from './model/blogList';
+import{forgotPassword} from './model/forgotPassword';
+import { HttpClient,HttpParams, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -24,6 +26,21 @@ export class UserService {
       logInObj = {username:username,password:password};
       return this.http.post<boolean>('http://localhost:3000/api/accounts/login', logInObj).pipe(catchError(this.errorHandler));
     }
+    forgot(email: string)
+    : Observable<boolean> {
+      var forgotPasswordObj: forgotPassword;
+      forgotPasswordObj = {email:email};
+      return this.http.post<boolean>('http://localhost:3000/api/accounts/login', forgotPasswordObj).pipe(catchError(this.errorHandler));
+    }
+
+    blogList(): Observable<blogList[]> {
+      var paramsData=  JSON.parse(localStorage.getItem('currentUser'));
+      var params = new HttpParams().set('access_token', paramsData.id)
+      let blogListData = this.http
+        .get<blogList[]>("http://localhost:3000/api/blogs",{params})
+        .pipe(catchError(this.errorHandler));
+      return blogListData;
+      }
     errorHandler(error: HttpErrorResponse) {
       console.log(error);
       return throwError(error.message || "Server Error");
