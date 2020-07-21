@@ -25,9 +25,16 @@ export class SignupComponent implements OnInit {
    var zip :number= form.value.zip;
 
    this._userService.signUp(username,name,email,password,address,phone,zip).subscribe(
-    response => console.log('Success!', response),
-    error => console.error('Error!', error),
-    ()=>this.router.navigate(['logIn'])
+    response => {console.log('Success!', response)
+    alert("registered in successfully")
+    this.router.navigate(['logIn'])},
+    error => {console.error('Error!', error)
+    alert("fillup all data")
+    this.router.navigate(['signUp'])},
+    // ()=>{
+    //   this.router.navigate(['logIn'])
+    //   alert("registered in successfully")
+    // }
   );
   }
 

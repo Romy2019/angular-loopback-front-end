@@ -15,13 +15,23 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   logIn(form:NgForm){
+ 
     var username: string= form.value.username;
     var password:string= form.value.password;
 
     this._userService.logIn(username,password).subscribe(
-      response => console.log('Success!', response),
-      error => console.error('Error!', error),
-      ()=>this.router.navigate(['signUp'])
+      response =>{ 
+        console.log('Success!', response)
+      localStorage.setItem('currentUser', JSON.stringify(response))
+      alert("Logged in successfully")
+      this.router.navigate(['blog'])
+    },
+      error => {
+        console.error('Error!', error)
+     alert("Check user name and password")
+     this.router.navigate(['logIn'])
+     
+    },
     );
     }
 

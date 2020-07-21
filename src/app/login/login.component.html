@@ -1,16 +1,26 @@
 <div class="container">
   <h2>Log In</h2>
 
-  <form #logInForm="ngForm" (ngSubmit)="logIn(logInForm)" >
+  <form #logInForm="ngForm"  >
     <div class="form-group">
       <label>Username</label>
       <input type="text" name="username" #username="ngModel" class="form-control" placeholder="User-Name" required ngModel>
+      <div *ngIf="username.errors && (username.dirty || username.touched)">
+        <div [hidden]="!username.errors.required" style="color:red;text-align:center;">
+          Please enter the Username .
+        </div>
+        </div>
     </div>
     <div class="form-group">
       <label>Password</label>
       <input type="password"name="password" #password="ngModel"  class="form-control"placeholder="Password"required ngModel>
+      <div *ngIf="password.errors && (password.dirty || password.touched)">
+        <div [hidden]="!name.errors.required" style="color:red;text-align:center;">
+          Please enter the  Password.
+        </div>
+        </div>
     </div>
-    <button class="span4 text-center"class="registerbtn"routerLink="/blog"type="submit">Log In</button>
+    <button class="span4 text-center"class="registerbtn"routerLink="/blog"(click)="logIn(logInForm)">Log In</button>
     <button class="span4 text-center"class="registerbtn"routerLink="/signUp">SignUp</button>
 </form>     
 </div>

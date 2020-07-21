@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ResetComponent } from './reset/reset.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogComponent } from './blog/blog.component';
-
+import { ReactiveFormsModule }    from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +22,7 @@ import { BlogComponent } from './blog/blog.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
