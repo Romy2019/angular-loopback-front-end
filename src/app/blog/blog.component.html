@@ -13,13 +13,14 @@
 	<div class="blog-post">
 		<div class="blog-heading">
 			<label>Title</label>
-			<input type="text" name="title" #title="ngModel" class="form-control" placeholder="Blog-title" required ngModel>
+<br>			<input type="text" name="title" #title="ngModel" class="form-control" placeholder="Blog-title" required ngModel>
 		</div>
 		<div class="blog-heading">
-			<label>Body</label>
-			<input type="text" name="body" #body="ngModel" class="form-control" placeholder="Blog-Body" required ngModel>
+			<label>Content</label>
+			<br>
+			<input type="text" name="content" #body="ngModel" class="form-control" placeholder="Blog-Body" required ngModel>
 		</div>
-		<button class="span4 text-center"class="registerbtn"routerLink="/blog">POST BLOG</button>
+		<button class="span4 text-center"class="registerbtn"routerLink="/blog"(click)="postBlog(blogform)">POST BLOG</button>
 		<app-blog-list></app-blog-list>
 	</div>
 	<div class="sidebar">

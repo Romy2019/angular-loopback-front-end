@@ -27,4 +27,19 @@ blogList(){
   );
 }
 
+deleteBLog(id:string){
+ 
+  this._userService.deleteBlog(id).subscribe(
+    response=>{
+      alert("delete blog")
+      this.router.navigate(['blog'])
+    },
+    error => {
+      alert("cannot delte blog")
+      this.router.navigate(['blog'])
+    }
+    
+  );
+}
+
 }

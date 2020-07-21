@@ -33,6 +33,22 @@ export class UserService {
       return this.http.post<boolean>('http://localhost:3000/api/accounts/login', forgotPasswordObj).pipe(catchError(this.errorHandler));
     }
 
+    postBlog(title: string,content:string)
+    : Observable<boolean> {
+      var paramsData=  JSON.parse(localStorage.getItem('currentUser'));
+      var params = new HttpParams().set('access_token', paramsData.id)
+      var postBlogObj: blogList;
+      postBlogObj = {title:title,content:content};
+      return this.http.post<boolean>('http://localhost:3000/api/blogs',postBlogObj,{params}).pipe(catchError(this.errorHandler));
+    }
+
+    deleteBlog(id:string)
+    : Observable<boolean> {
+      var paramsData=  JSON.parse(localStorage.getItem('currentUser'));
+      var params = new HttpParams().set('access_token', paramsData.id)
+      return this.http.delete<boolean>('http://localhost:3000/api/blogs/'+id,{params}).pipe(catchError(this.errorHandler));
+    }
+
     blogList(): Observable<blogList[]> {
       var paramsData=  JSON.parse(localStorage.getItem('currentUser'));
       var params = new HttpParams().set('access_token', paramsData.id)
