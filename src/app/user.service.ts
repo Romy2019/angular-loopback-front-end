@@ -30,7 +30,14 @@ export class UserService {
     : Observable<boolean> {
       var forgotPasswordObj: forgotPassword;
       forgotPasswordObj = {email:email};
-      return this.http.post<boolean>('http://localhost:3000/api/accounts/login', forgotPasswordObj).pipe(catchError(this.errorHandler));
+      return this.http.post<boolean>('http://localhost:3000/api/accounts/reset', forgotPasswordObj).pipe(catchError(this.errorHandler));
+    }
+ 
+    setNewPassword(newPassword:string)
+    : Observable<boolean> {
+      var changeNewPasswordObj: object;
+      changeNewPasswordObj = {newPassword:newPassword};
+      return this.http.post<boolean>('http://localhost:3000/api/accounts/reset-password',changeNewPasswordObj).pipe(catchError(this.errorHandler));
     }
 
     postBlog(title: string,content:string)

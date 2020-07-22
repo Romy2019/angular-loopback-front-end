@@ -12,6 +12,7 @@ import { ReactiveFormsModule }    from '@angular/forms';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogEditComponent } from './blog-edit/blog-edit.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     BlogComponent,
     BlogListComponent,
     BlogEditComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

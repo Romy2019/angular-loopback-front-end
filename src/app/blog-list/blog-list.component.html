@@ -1,8 +1,8 @@
-<p>Blogs:</p>
-<ul>
+<h1>Blogs:</h1>
+<ul class="w2-container">
   <li *ngFor="let blog of BlogList">
-    {{ blog.title }}
-    {{blog.content}}
+   <h2> {{ blog.title }}</h2>
+  {{blog.content}} 
     <span><button class="buttom3" (click)="deleteBLog(blog.id)">Delete </button></span>
     <span><button class="buttom4" (click)="loadMyChildComponent();">Edit</button>
       <div *ngIf= 'loadComponent'>
