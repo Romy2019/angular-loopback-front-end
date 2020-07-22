@@ -3,8 +3,12 @@
   <li *ngFor="let blog of BlogList">
     {{ blog.title }}
     {{blog.content}}
-    <span><button (click)="deleteBLog(blog.id)">Delete </button></span>
-    <span><button>Edit </button></span>
+    <span><button class="buttom3" (click)="deleteBLog(blog.id)">Delete </button></span>
+    <span><button class="buttom4" (click)="loadMyChildComponent();">Edit</button>
+      <div *ngIf= 'loadComponent'>
+      <app-blog-edit></app-blog-edit>
+    </div>
+  </span>
   </li>
 </ul>
 

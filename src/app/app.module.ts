@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BlogComponent } from './blog/blog.component';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { BlogListComponent } from './blog-list/blog-list.component';
+import { BlogEditComponent } from './blog-edit/blog-edit.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { BlogListComponent } from './blog-list/blog-list.component';
     LoginComponent,
     ResetComponent,
     BlogComponent,
-    BlogListComponent
+    BlogListComponent,
+    BlogEditComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

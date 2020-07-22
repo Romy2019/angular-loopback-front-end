@@ -49,6 +49,17 @@ export class UserService {
       return this.http.delete<boolean>('http://localhost:3000/api/blogs/'+id,{params}).pipe(catchError(this.errorHandler));
     }
 
+
+    changePassword(oldPassword: string,newPassword:string)
+    : Observable<boolean> {
+      var paramsData=  JSON.parse(localStorage.getItem('currentUser'));
+      var params = new HttpParams().set('access_token', paramsData.id)
+      var changePasswordObj: any;
+      changePasswordObj = {oldPassword:oldPassword,newPassword:newPassword};
+      return this.http.post<boolean>('http://localhost:3000/api/accounts/change-password',changePasswordObj,{params}).pipe(catchError(this.errorHandler));
+    }
+
+
     blogList(): Observable<blogList[]> {
       var paramsData=  JSON.parse(localStorage.getItem('currentUser'));
       var params = new HttpParams().set('access_token', paramsData.id)
@@ -57,6 +68,14 @@ export class UserService {
         .pipe(catchError(this.errorHandler));
       return blogListData;
       }
+
+     
+    
+  
+    
+
+
+
     errorHandler(error: HttpErrorResponse) {
       console.log(error);
       return throwError(error.message || "Server Error");

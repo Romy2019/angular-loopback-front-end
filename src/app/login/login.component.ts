@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 // var token = currentUser.token;
       alert("Logged in successfully")
       this.router.navigate(['blog'])
+    
     },
       error => {
         console.error('Error!', error)

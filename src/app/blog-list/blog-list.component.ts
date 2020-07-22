@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BlogListComponent implements OnInit {
   BlogList: blogList[];
+  private loadComponent = false;
   constructor(private _userService:UserService,private router:Router) { }
 
   ngOnInit(): void {
@@ -26,7 +27,10 @@ blogList(){
     
   );
 }
-
+loadMyChildComponent() {
+    this.loadComponent =true;
+  
+}
 deleteBLog(id:string){
  
   this._userService.deleteBlog(id).subscribe(

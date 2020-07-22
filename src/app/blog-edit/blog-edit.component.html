@@ -1,0 +1,17 @@
+<form #blogEdit="ngForm"  >
+    <div class="box">
+        <div class="blog-post">
+            <div class="blog-heading">
+                <label>Title</label>
+    <br>			<input type="text" name="title" #title="ngModel" class="form-control" placeholder="Blog-title" required ngModel>
+            </div>
+            <div class="blog-heading">
+                <label>Content</label>
+                <br>
+                <input type="text" name="content" #content="ngModel" class="form-control" placeholder="Blog-Body" required ngModel>
+            </div>
+            <button class="span4 text-center"class="registerbtn"routerLink="/blog">Save</button>
+        </div>
+
+    </div>
+    </form>

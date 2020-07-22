@@ -17,8 +17,6 @@ export class ResetComponent implements OnInit {
   forgot(form:NgForm){
  
     var email: string= form.value.email;
-   
-
     this._userService.forgot(email).subscribe(
       response =>{ })
     }

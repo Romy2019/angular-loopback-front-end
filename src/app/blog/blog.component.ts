@@ -32,4 +32,11 @@ export class BlogComponent implements OnInit {
     },
     );
     }
+
+    logout() {
+      localStorage.removeItem('currentUser');
+      alert("confirm log out")
+      this.router.navigate(['logIn'])
+    }
+    
 }
